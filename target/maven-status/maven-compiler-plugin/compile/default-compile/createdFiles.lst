@@ -1,5 +1,0 @@
-service\product\ProductServiceBean.class
-service\product\ProductService.class
-entity\Product.class
-Application.class
-controller\product\ProductController.class

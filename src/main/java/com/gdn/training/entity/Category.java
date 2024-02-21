@@ -7,34 +7,26 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "products")
+@Table(name = "categories")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class Category {
+
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   @Column(name = "id", nullable = false)
   private Long id;
 
+  @NotNull
   @Column(name = "name")
   private String name;
-
-  @Column(name = "price")
-  private Long price;
-
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "category_id", referencedColumnName = "id")
-  private Category category;
-
 }
